@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vue Table</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>Vue Bootstrap-Table example</h1>
+        <h3>(Demonstrating Pagination, Search)</h3>
+    </div>
+    <div class="container" id="myApp">
+        <div class="row">
+            <div class="col-sm-12">
+                <input type="text" placeholder="Enter text to search" v-model="searchBy" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+              &nbsp;
+            </div>
+          </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Topic</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in displayedSubjects">
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.topic }}</td>
+                                <td>{{ item.rating }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button v-for="(n, index) in totalPageNumbers" type="button"
+                    v-on:click="changePageNumber(n, this)"
+                    class="btn btn-link">{{ n }}</button>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
